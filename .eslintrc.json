@@ -16,27 +16,28 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "react-hooks"],
+  "plugins": ["react", "@typescript-eslint", "react-hooks", "import"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "no-use-before-define": "off",
     "import/no-extraneous-dependencies": "off",
     "react/jsx-filename-extension": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "error",
+    "import/extensions": "off"
   },
   "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
     "import/resolver": {
       "node": {
         "moduleDirectory": ["node_modules", "src"]
       },
-      "alias": [
-        ["App", "./src/App.tsx"],
-        ["components", "./src/components"]
-      ]
-    },
-    "typescript": {
-      "alwaysTryTypes": true
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
     }
   }
 }

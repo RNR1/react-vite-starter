@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { RouteObject, useRoutes } from 'react-router';
 import CountButton from 'components/Button';
-import logo from './logo.svg';
-import './App.css';
+import logo from 'logo.svg';
+import 'App.css';
 
 function App() {
   const [count, setCount] = React.useState(0);
