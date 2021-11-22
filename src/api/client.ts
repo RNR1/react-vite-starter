@@ -1,5 +1,7 @@
 import axios from 'axios';
 
-const apiClient = axios.create({ baseURL: 'https://www.accuweather.com/api' });
+const baseURL: string = (import.meta.env.VITE_API_URL as string) ?? '';
+
+const apiClient = axios.create({ baseURL });
 
 export default apiClient;

@@ -1,13 +1,16 @@
-import * as React from 'react';
+import styled from 'styled-components';
 
-const CountButton: React.FC<{
-  count: number;
-  setCount: React.Dispatch<React.SetStateAction<number>>;
-}> = ({ count, setCount }) => (
-  <button type="button" onClick={() => setCount((prev) => prev + 1)}>
-    count is:
-    {count}
-  </button>
-);
+const Button = styled.button.attrs({
+  className: 'count-button',
+  type: 'button',
+})`
+  font-size: 2.5rem;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  background: ${({ theme }) => theme.colors.lightGray};
+  color: black;
+`;
 
-export default CountButton;
+export default Button;
