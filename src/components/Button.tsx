@@ -11,6 +11,10 @@ const Button = styled.button.attrs({
   margin: 0.5rem;
   background: ${({ theme }) => theme.colors.lightGray};
   color: black;
+
+  :disabled {
+    cursor: not-allowed;
+  }
 `;
 
 export default Button;

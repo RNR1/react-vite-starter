@@ -5,8 +5,10 @@ import Logo from 'components/Logo';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import CounterSelector from 'store/selectors/counter.selectors';
 import { decrement, increment } from 'store/reducers/counter.reducer';
+import { Trans, useTranslation } from 'react-i18next';
 
 const Home = () => {
+  const { t } = useTranslation('home');
   const dispatch = useAppDispatch();
   const count = useAppSelector(CounterSelector.count);
 
@@ -14,16 +16,14 @@ const Home = () => {
     <Container>
       <Header>
         <Logo />
-        <p>Hello Vite + React!</p>
+        <p>{t('hello-vite')}</p>
         <p>{count}</p>
         <div>
           <Button onClick={() => dispatch(decrement())}>-</Button>
           <Button onClick={() => dispatch(increment())}>+</Button>
         </div>
         <p>
-          Edit
-          <Code> App.tsx </Code>
-          and save to test HMR updates.
+          <Trans t={t} i18nKey="cta" components={[<Code />]} />
         </p>
         <p>
           <Link
@@ -76,6 +76,7 @@ const Code = styled.code`
   background: ${({ theme }) => theme.colors.lightGray};
   color: black;
   border-radius: 12px;
+  padding: 0.2rem;
   margin: 0.5rem;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

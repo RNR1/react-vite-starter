@@ -8,3 +8,5 @@ This is an example for a starter React + Vite Boilerplate with:
 - Husky, Commitlint, Lint-staged.
 - Axios.
 - styled-components.
+- Redux-Toolkit.
+- Storybook.
