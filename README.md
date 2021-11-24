@@ -1,17 +1,18 @@
 # Starter React-Vite Boilerplate
 
-This is an example for a starter React + Vite Boilerplate with:
+This is an a starter boiler plate for React + Vite with:
 
 - TypeScript
-- ESLint (AirBnB, React Hooks, Absolute imports resolver).
-- Prettier.
-- Husky, Commitlint, Lint-staged.
-- Axios.
-- styled-components.
-- React Router (V6).
-- Redux-Toolkit.
-- Storybook.
-- React testing library.
+- ESLint (Code style guide - AirBnB, React Hooks, Absolute imports resolver).
+- Prettier (Code formatting).
+- Husky, Commitlint, Lint-staged (Git Hooks - Angular config).
+- Axios (HTTP Client).
+- styled-components (Styling).
+- React Router (V6) (Client-side routing).
+- Redux-Toolkit (State Management).
+- Storybook (Design System).
+- React-i18next (Internationalization).
+- React testing library (Testing).
 
 ## Installation:
 
