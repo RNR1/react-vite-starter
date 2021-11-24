@@ -1,6 +1,6 @@
 # Starter React-Vite Boilerplate
 
-This is an a starter boiler plate for React + Vite with:
+This is a starter boilerplate for React + Vite with:
 
 - TypeScript
 - ESLint (Code style guide - AirBnB, React Hooks, Absolute imports resolver).
