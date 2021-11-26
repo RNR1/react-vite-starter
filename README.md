@@ -2,17 +2,18 @@
 
 This is a starter boilerplate for React + Vite with:
 
-- TypeScript
-- ESLint (Code style guide - AirBnB, React Hooks, Absolute imports resolver).
-- Prettier (Code formatting).
-- Husky, Commitlint, Lint-staged (Git Hooks - Angular config).
-- Axios (HTTP Client).
-- styled-components (Styling).
-- React Router (V6) (Client-side routing).
-- Redux-Toolkit (State Management).
-- Storybook (Design System).
-- React-i18next (Internationalization).
-- React testing library (Testing).
+- [TypeScript](https://www.typescriptlang.org/).
+- [ESLint](https://eslint.org/) (Code style guides - [AirBnB](https://github.com/airbnb/javascript), [React Hooks](https://reactjs.org/docs/hooks-rules.html), [Absolute imports resolver](https://www.npmjs.com/package/eslint-import-resolver-typescript)).
+- [Prettier](https://prettier.io/) (Code formatting).
+- [Husky](https://typicode.github.io/husky/#/), [Commitlint](https://commitlint.js.org/#/), [Lint-staged](https://github.com/okonet/lint-staged) (Git Hooks + [Angular commit style guide](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)).
+- [React-Query](https://react-query.tanstack.com/) (API calls hooks).
+- [Axios](https://axios-http.com/) (HTTP Client).
+- [styled-components](https://styled-components.com/) (Styling).
+- [React Router (V6)](https://reactrouter.com/) (Client-side routing).
+- [Redux-Toolkit](https://redux-toolkit.js.org/) (State Management).
+- [Storybook](https://storybook.js.org/) (Design System).
+- [React-i18next](https://react.i18next.com/) (Internationalization).
+- [React testing library](https://testing-library.com/docs/react-testing-library/intro/) (Unit tests).
 
 ## Installation:
 
@@ -25,7 +26,6 @@ This is a starter boilerplate for React + Vite with:
 
 - Javascript/React: [AirBnB](https://github.com/airbnb/javascript).
 - Commit Message Format: [Angular commit message format](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format).
-- [Styled-components & Material-UI](https://levelup.gitconnected.com/material-ui-styled-components-fff4d345fb07).
 
 ## Folder Structure:
 
