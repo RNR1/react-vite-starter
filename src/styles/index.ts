@@ -7,6 +7,8 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     overflow-y: overlay;
     scroll-behavior: smooth;
+
+    ${({ theme }) => theme.utils.scrollbar};
   }
 
   *, *:before, *:after {
