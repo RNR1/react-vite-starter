@@ -23,6 +23,15 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  ul {
+    list-style: none;
+  }
+
+  li {
+    padding: 0;
+    margin: 0;
+  }
+
   
   `;
 

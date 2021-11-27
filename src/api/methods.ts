@@ -1,8 +1,9 @@
-import apiClient, { HTTPMethod } from './client';
+import apiClient, { HTTPMethod } from 'api/client';
+import { Post } from 'api/response';
 
 // Declare your API calls here...
 const API = {
-  get: () => apiClient({ url: '/', method: HTTPMethod.GET }),
+  getPosts: () => apiClient<Post[]>({ url: '/posts', method: HTTPMethod.GET }),
 };
 
 export default API;

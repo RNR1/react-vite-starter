@@ -11,7 +11,8 @@ export default i18n
       en: {
         home: {
           'hello-vite': 'Hello Vite + React!',
-          cta: 'Edit <0>App.tsx</0> and save to test HMR updates.',
+          'learn-react': 'Learn React',
+          'vite-docs': 'Vite Docs',
         },
       },
     },

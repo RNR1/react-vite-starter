@@ -55,9 +55,7 @@ const client = <T extends Responses>({
 
 request.interceptors.request.use(
   (req: AxiosRequestConfig) => {
-    if (req.url?.includes('get_location')) {
-      delete req.headers?.Authorization;
-    }
+    if (req.url?.includes('get_location')) delete req.headers?.Authorization;
     return req;
   },
   (error: AxiosError) => {},
