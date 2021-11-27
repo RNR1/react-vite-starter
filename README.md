@@ -54,8 +54,12 @@ src
 │     ├── selectors                             # selectors folder
 │     │      └── <reducerName.selector>.ts      # name should be related to reducer name
 │     └── hooks.ts                              # Typed React Redux hooks (useSelector, useDispatch)
-└── api
-     ├── client.ts                              # api call
-     ├── methods.ts                             # custom calls
-     └── response.ts                            # responses types definition
+├── stories                                     # Storybook stories
+├── api
+│     ├── client.ts                              # api call
+│     ├── methods.ts                             # custom calls
+│     └── response.ts                            # responses types definition
+└── app
+      ├── app.tsx                                # App entry file.
+      └── Providers.tsx                          # App providers wrapper.
 ```
