@@ -18,7 +18,7 @@ This is a starter boilerplate for React + Vite with:
 ## Installation:
 
 - Clone and npm i.
-- Run `cp .env.example .env` to create a .env file for environment variables.
+- Run `cp .env.example .env` to create a .env file for environment variables (use PS on windows).
 - Run `npm run dev`.
 - Navigate to `localhost:3000`.
 

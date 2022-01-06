@@ -24,7 +24,7 @@ const Home = () => {
   const title = postsTitle[status];
 
   return (
-    <Container>
+    <>
       <Header>
         <Logo />
         <p>{t('hello-vite')}</p>
@@ -58,7 +58,7 @@ const Home = () => {
       ) : (
         postsPlaceholders[status]
       )}
-    </Container>
+    </>
   );
 };
 
@@ -68,6 +68,7 @@ const Container = styled.section.attrs({ className: 'home-container' })`
   text-align: center;
   background-color: #282c34;
   color: white;
+  height: inherit;
 `;
 
 const Header = styled.header.attrs({ className: 'home-header' })`

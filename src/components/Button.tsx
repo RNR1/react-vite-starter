@@ -11,6 +11,7 @@ const Button = styled.button.attrs({
   margin: 0.5rem;
   background: ${({ theme }) => theme.colors.lightGray};
   color: black;
+  user-select: none;
 
   :disabled {
     cursor: not-allowed;

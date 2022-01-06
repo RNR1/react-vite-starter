@@ -1,6 +1,6 @@
 {
   "globals": {
-    "JSX": true
+    "JSX": "readonly"
   },
   "env": {
     "browser": true,
@@ -33,7 +33,11 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "no-shadow": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "react/function-component-definition": [
+      "error",
+      { "namedComponents": "arrow-function" }
+    ]
   },
   "settings": {
     "import/parsers": {

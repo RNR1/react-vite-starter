@@ -17,6 +17,7 @@ const Logo = styled.img.attrs({
 })`
   height: 40vmin;
   pointer-events: none;
+  user-select: none;
 
   @media (prefers-reduced-motion: no-preference) {
     animation: ${AppLogoSpin} infinite 20s linear;

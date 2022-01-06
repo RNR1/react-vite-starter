@@ -26,40 +26,22 @@ function createAxiosInstance() {
   return axios.create(axiosConfig);
 }
 const request: AxiosInstance = createAxiosInstance();
-const cache: { [key: string]: Responses } = {};
 export interface ClientConfig extends AxiosRequestConfig {
-  useCache?: boolean;
-  invalidateQuery?: boolean;
   url?: string;
 }
 const client = <T extends Responses>({
   method = HTTPMethod.GET,
   url = baseURL,
   data,
-  useCache = false,
-  invalidateQuery = false,
   ...rest
 }: ClientConfig): Promise<T> =>
-  useCache && !invalidateQuery && cache[url]
-    ? (Promise.resolve(cache[url]) as Promise<T>)
-    : request({
-        method,
-        url,
-        data,
-        paramsSerializer,
-        ...rest,
-      }).then((res: AxiosResponse<T>) => {
-        if (useCache) cache[url] = res.data;
-        return res.data;
-      });
-
-request.interceptors.request.use(
-  (req: AxiosRequestConfig) => {
-    if (req.url?.includes('get_location')) delete req.headers?.Authorization;
-    return req;
-  },
-  (error: AxiosError) => {},
-);
+  request({
+    method,
+    url,
+    data,
+    paramsSerializer,
+    ...rest,
+  }).then((res: AxiosResponse<T>) => res.data);
 
 request.interceptors.response.use(
   (res: AxiosResponse) => res,
@@ -94,7 +76,7 @@ request.interceptors.response.use(
 
     const response: { data: Record<string, string[]> } | undefined =
       err.response?.data;
-    const message = response ? response.data.message : err.message;
+    const message = response?.data?.message ?? err.message;
 
     const error = { originalRequest, message, status };
     throw error;
