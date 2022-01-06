@@ -1,12 +1,16 @@
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const NotFound = () => (
-  <Container>
-    <h2>There&apos;s nothing here.</h2>
-    <Link to="/">Take me home</Link>
-  </Container>
-);
+const NotFound = () => {
+  const { t } = useTranslation('not-found');
+  return (
+    <Container>
+      <h2>{t('title')}</h2>
+      <Link to="/">{t('home-link-caption')}</Link>
+    </Container>
+  );
+};
 
 export default NotFound;
 

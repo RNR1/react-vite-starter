@@ -14,6 +14,10 @@ export default i18n
           'learn-react': 'Learn React',
           'vite-docs': 'Vite Docs',
         },
+        'not-found': {
+          title: "There's nothing here",
+          'home-link-caption': 'Take me home',
+        },
       },
     },
     lng: 'en', // if you're using a language detector, do not define the lng option

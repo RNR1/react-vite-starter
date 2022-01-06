@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 import CounterSelector from 'store/selectors/counter.selectors';
 import { decrement, increment } from 'store/reducers/counter.reducer';
 import Link from 'components/Link';
+import List from 'components/List';
 
 const Home = () => {
   const { t } = useTranslation('home');
@@ -42,34 +43,25 @@ const Home = () => {
         </Link>
       </p>
       <h2>{title}</h2>
-      {posts?.length ? (
-        <ul>
-          {posts?.slice(0, 3).map(({ title, id, body }) => (
-            <li key={id}>
-              <h3>
-                <u>
-                  #{id}: {title}
-                </u>
-              </h3>
-              <p>{body}</p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        postsPlaceholders[status]
-      )}
+      <List
+        items={posts?.slice(0, 3) ?? []}
+        emptyStateElement={postsPlaceholders[status] as React.ReactElement}
+        renderOption={({ title, id, body }) => (
+          <li key={id}>
+            <h3>
+              <u>
+                #{id}: {title}
+              </u>
+            </h3>
+            <p>{body}</p>
+          </li>
+        )}
+      />
     </>
   );
 };
 
 export default Home;
-
-const Container = styled.section.attrs({ className: 'home-container' })`
-  text-align: center;
-  background-color: #282c34;
-  color: white;
-  height: inherit;
-`;
 
 const Header = styled.header.attrs({ className: 'home-header' })`
   display: flex;
