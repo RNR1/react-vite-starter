@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ESNext",
+    "module": "commonjs",
+    "baseUrl": "..",
+    "types": ["vite-plugin-svgr/client"]
+  }
+}

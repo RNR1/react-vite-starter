@@ -16,7 +16,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vite/client", "jest", "testing-library__jest-dom"]
+    "types": [
+      "vite-plugin-svgr/client",
+      "vite/client",
+      "jest",
+      "testing-library__jest-dom"
+    ]
   },
-  "include": ["src"]
+  "include": ["src", "node_modules"]
 }

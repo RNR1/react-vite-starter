@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import API from 'api/methods';
 import { Post } from 'api/response';
 import Button from 'components/Button';
-import Logo from 'components/Logo';
+import StyledLogo from 'components/Logo';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import CounterSelector from 'store/selectors/counter.selectors';
 import { decrement, increment } from 'store/reducers/counter.reducer';
@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <>
       <Header>
-        <Logo />
+        <StyledLogo />
         <p>{t('hello-vite')}</p>
       </Header>
       <p>{count}</p>

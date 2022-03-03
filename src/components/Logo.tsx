@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import logo from 'assets/logo.svg';
+import BrandLogo from 'icons/Logo';
 
 const AppLogoSpin = keyframes`
   from {
@@ -10,12 +10,12 @@ const AppLogoSpin = keyframes`
   }
 `;
 
-const Logo = styled.img.attrs({
-  src: logo,
+const Logo = styled(BrandLogo).attrs({
   className: 'app-logo',
-  alt: 'logo',
+  title: 'logo',
+  width: '200px',
+  height: '200px',
 })`
-  height: 40vmin;
   pointer-events: none;
   user-select: none;
 

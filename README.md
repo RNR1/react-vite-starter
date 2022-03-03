@@ -41,6 +41,7 @@ src
 │                └── ComponentName.tsx
 ├── i18n                                        # internationalization
 ├── assets                                      # assets folder
+├── icons                                       # svg to JSX icons
 ├── routes                                      # routing
 ├── style
 │     ├── index.ts                              # global styles will be here
@@ -63,3 +64,14 @@ src
       ├── app.tsx                                # App entry file.
       └── Providers.tsx                          # App providers wrapper.
 ```
+
+## Available Scripts
+
+- `dev`: Run dev server
+- `build`: Run build (will be outputted into `dist` directory)
+- `serve`: Serve a preview of the production build (not optimized for production use, just for preview)
+- `test`: Run jest unit tests
+- `lint`: Run ESLint on the entire project
+- `format`: Run Prettier code formatting on the entire project
+- `generate-icons`: Generate JSX components from all the icons from the `assets` directory (the output will be accessible in the `icons` directory
+- `storybook`: Run storybook design system
