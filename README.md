@@ -13,6 +13,7 @@ This is a starter boilerplate for React + Vite with:
 - [Redux-Toolkit](https://redux-toolkit.js.org/) (State Management).
 - [Storybook](https://storybook.js.org/) (Design System).
 - [React-i18next](https://react.i18next.com/) (Internationalization).
+- [Vitest](https://vitest.dev/)
 - [React testing library](https://testing-library.com/docs/react-testing-library/intro/) (Unit tests).
 
 ## Installation:
@@ -70,7 +71,7 @@ src
 - `dev`: Run dev server
 - `build`: Run build (will be outputted into `dist` directory)
 - `serve`: Serve a preview of the production build (not optimized for production use, just for preview)
-- `test`: Run jest unit tests
+- `test`: Run vitest unit tests on watch mode
 - `lint`: Run ESLint on the entire project
 - `format`: Run Prettier code formatting on the entire project
 - `generate-icons`: Generate JSX components from all the icons from the `assets` directory (the output will be accessible in the `icons` directory
