@@ -1,6 +1,8 @@
 {
   "globals": {
-    "JSX": "readonly"
+    "JSX": "readonly",
+    "DocumentEventMap": true,
+    "EventListener": true
   },
   "env": {
     "browser": true,
@@ -11,6 +13,7 @@
     "plugin:react/recommended",
     "airbnb",
     "plugin:react-hooks/recommended",
+    "plugin:storybook/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",

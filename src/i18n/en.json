@@ -1,0 +1,11 @@
+{
+  "home": {
+    "hello-vite": "Hello Vite + React!",
+    "learn-react": "Learn React",
+    "vite-docs": "Vite Docs"
+  },
+  "not-found": {
+    "title": "There's nothing here",
+    "home-link-caption": "Take me home"
+  }
+}

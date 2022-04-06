@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-export interface ListProps<T extends Record<string, unknown>> {
+export interface ListProps<T> {
   items: T[];
   emptyStateElement: React.ReactElement;
-  renderOption: (item: T, idx?: number) => React.ReactNode;
+  renderOption: (item: T, idx: number) => React.ReactNode;
 }
 
 const List = <T extends Record<string, unknown>>({

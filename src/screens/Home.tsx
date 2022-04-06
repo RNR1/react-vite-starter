@@ -1,23 +1,20 @@
 import * as React from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { useQuery, QueryStatus } from 'react-query';
 import styled from 'styled-components';
 import API from 'api/methods';
 import { Post } from 'api/response';
 import Button from 'components/Button';
 import StyledLogo from 'components/Logo';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import CounterSelector from 'store/selectors/counter.selectors';
-import { decrement, increment } from 'store/reducers/counter.reducer';
 import Link from 'components/Link';
 import List from 'components/List';
+import { useCounter } from 'hooks';
 
 const Home = () => {
   const { t } = useTranslation('home');
-  const dispatch = useAppDispatch();
-  const count = useAppSelector(CounterSelector.count);
+  const { count, increment, decrement } = useCounter();
 
-  const { data: posts, status } = useQuery<Post[]>('posts', API.getPosts, {
+  const { data: posts, status } = useQuery<Post[]>(['posts'], API.getPosts, {
     initialData: [],
     retry: 1,
   });
@@ -30,10 +27,22 @@ const Home = () => {
         <StyledLogo />
         <p>{t('hello-vite')}</p>
       </Header>
-      <p>{count}</p>
+      <p data-testid="counter">count is: {count}</p>
       <div>
-        <Button onClick={() => dispatch(decrement())}>-</Button>
-        <Button onClick={() => dispatch(increment())}>+</Button>
+        <Button
+          data-testid="decrement-button"
+          role="button"
+          onClick={decrement}
+        >
+          -
+        </Button>
+        <Button
+          data-testid="increment-button"
+          role="button"
+          onClick={increment}
+        >
+          +
+        </Button>
       </div>
       <p>
         <Link href="https://reactjs.org">{t('learn-react')}</Link>
@@ -46,14 +55,14 @@ const Home = () => {
       <List
         items={posts?.slice(0, 3) ?? []}
         emptyStateElement={postsPlaceholders[status] as React.ReactElement}
-        renderOption={({ title, id, body }) => (
-          <li key={id}>
+        renderOption={({ title, id, body }, index) => (
+          <li key={id} data-testid={`list-item-${index + 1}`}>
             <h3>
               <u>
                 #{id}: {title}
               </u>
             </h3>
-            <p>{body}</p>
+            <pre>{body}</pre>
           </li>
         )}
       />
@@ -82,7 +91,6 @@ const Code = styled.code`
 `;
 
 const postsTitle: Record<QueryStatus, string> = {
-  idle: 'Fetching Posts...',
   loading: 'Fetching Posts...',
   error: 'There was an error fetching your posts',
   success: 'Top 3 Posts',
