@@ -11,7 +11,7 @@ import fontsPlugin from 'vite-plugin-fonts';
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
-    // eslintPlugin({ cache: true }),
+    eslintPlugin({ cache: true }),
     react(),
     svgrPlugin({
       svgrOptions: {
