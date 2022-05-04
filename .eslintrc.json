@@ -2,12 +2,12 @@
   "globals": {
     "JSX": "readonly",
     "DocumentEventMap": true,
-    "EventListener": true
+    "EventListener": true,
+    "vi": "readonly"
   },
   "env": {
     "browser": true,
-    "es2021": true,
-    "jest": true
+    "es2021": true
   },
   "extends": [
     "plugin:react/recommended",
@@ -43,6 +43,15 @@
       { "namedComponents": "arrow-function" }
     ]
   },
+  "overrides": [
+    {
+      "files": ["src/app/ErrorBoundary.tsx"],
+      "rules": {
+        "no-console": "off",
+        "react/function-component-definition": "off"
+      }
+    }
+  ],
   "settings": {
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"]

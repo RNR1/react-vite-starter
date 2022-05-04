@@ -7,5 +7,9 @@
   "not-found": {
     "title": "There's nothing here",
     "home-link-caption": "Take me home"
+  },
+  "error-boundary": {
+    "title": "We had an error",
+    "home-link-caption": "Take me home"
   }
 }

@@ -7,11 +7,12 @@ const Layout = () => (
   </Main>
 );
 
-const Main = styled.main.attrs({ className: 'main' })`
+export const Main = styled.main.attrs({ className: 'main' })`
   text-align: center;
   background-color: #282c34;
   color: white;
-  height: 100%;
+  height: inherit;
+  padding: 1rem;
 `;
 
 export default Layout;
