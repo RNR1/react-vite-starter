@@ -3,7 +3,7 @@ import 'i18n';
 import Providers from 'app/Providers';
 
 const App = () => (
-  <Providers>
+  <Providers withReactQueryDevTools>
     <Routes />
   </Providers>
 );

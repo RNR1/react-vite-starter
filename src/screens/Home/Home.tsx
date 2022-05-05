@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery, QueryStatus } from 'react-query';
 import styled from 'styled-components';
+import format from 'date-fns/format';
+
 import API from 'api/methods';
 import { Post } from 'api/response';
 import Button from 'components/Button';
@@ -21,12 +23,15 @@ const Home = () => {
 
   const title = postsTitle[status];
 
+  const today = format(new Date(), 'eeee, do MMM yyyy');
+
   return (
     <>
       <Header>
         <StyledLogo />
         <p>{t('hello-vite')}</p>
       </Header>
+      <p data-testid="today">Today is {today}</p>
       <p data-testid="counter">count is: {count}</p>
       <div>
         <Button

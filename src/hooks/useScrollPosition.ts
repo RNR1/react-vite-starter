@@ -1,18 +1,28 @@
 import * as React from 'react';
 
-const useScrollPosition = () => {
-  const [scrollPosition, setScrollPosition] = React.useState(0);
+/**
+ * Custom hook for tracking the window scroll position
+ * in browser environments
+ *
+ * @param initialValue - number
+ * @returns number
+ */
+const useScrollPosition = (initialValue = 0) => {
+  const [scrollPosition, setScrollPosition] =
+    React.useState<number>(initialValue);
 
   const handleScroll = React.useCallback(() => {
-    const currentPosition = window.pageYOffset;
+    const currentPosition = window?.pageYOffset ?? initialValue;
     setScrollPosition(currentPosition);
-  }, []);
+  }, [initialValue]);
 
   React.useLayoutEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    if (typeof window !== 'undefined')
+      window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (typeof window !== 'undefined')
+        window.removeEventListener('scroll', handleScroll);
     };
   }, [handleScroll]);
 

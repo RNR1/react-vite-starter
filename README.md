@@ -13,8 +13,8 @@ This is a starter boilerplate for React + Vite with:
 - [Redux-Toolkit](https://redux-toolkit.js.org/) (State Management).
 - [Storybook](https://storybook.js.org/) (Design System).
 - [React-i18next](https://react.i18next.com/) (Internationalization).
-- [Vitest](https://vitest.dev/)
-- [React testing library](https://testing-library.com/docs/react-testing-library/intro/) (Unit tests).
+- [Vitest](https://vitest.dev/) (Unit tests framework)
+- [React testing library](https://testing-library.com/docs/react-testing-library/intro/) (DOM testing).
 
 ## Installation:
 
@@ -32,37 +32,48 @@ This is a starter boilerplate for React + Vite with:
 
 ```
 src
-├── screens                                       # app screens
-│       └── ScreenName.tsx
+├── screens                                     # app screens
+│       └── <ScreenName>
+│                 ├── Screen.tsx                # Screen declaration
+│                 ├── Screen.test.tsx           # Unit tests
+│                 ├── <Nested>                  # Nested routes/screen-specific components
+│                 └── package.json              # Main file declaration for neat imports
 │
 ├── constants                                   # app config & constants
-│       └── <type.constants.ts>
 ├── components
 │       └── <ComponentName>
-│                └── ComponentName.tsx
+│               ├── ComponentName.tsx           # Component declaration
+│               ├── ComponentName.stories.tsx   # Storybook templates
+│               ├── ComponentName.test.tsx      # Unit tests
+│               └── package.json                # Main file declaration for neat imports
 ├── i18n                                        # internationalization
 ├── assets                                      # assets folder
 ├── icons                                       # svg to JSX icons
 ├── routes                                      # routing
+│     ├── Routes.tsx                            # Routing tree declaration
+│     └── paths.tsx                             # route paths
 ├── style
 │     ├── index.ts                              # global styles will be here
 │     ├── shared.ts                             # shared styled components
 │     ├── theme.ts                              # styled-components theme
 │     └── Provider.tsx                          # styled-components theme provider
 ├── store
+│     ├── index.ts                              # store declaration
 │     ├── reducers
 │     │      ├── index.ts                       # exports combined reducer
 │     │      └── <reducerName.reducer>.ts
 │     ├── selectors                             # selectors folder
 │     │      └── <reducerName.selector>.ts      # name should be related to reducer name
-│     └── hooks.ts                              # Typed React Redux hooks (useSelector, useDispatch)
-├── stories                                     # Storybook stories
+│     ├── hooks.ts                              # Typed React Redux hooks (useSelector, useDispatch)
+│     └── Provider.tsx                          # Redux store provider (handy for unit testing)
 ├── api
-│     ├── client.ts                              # api call
-│     ├── methods.ts                             # custom calls
-│     └── response.ts                            # responses types definition
+│     ├── client.ts                              # API client declaration
+│     ├── methods.ts                             # API endpoint methods
+│     ├── response.ts                            # responses type definitions
+│     └── payload.ts                             # request payload type definitions.
 └── app
       ├── app.tsx                                # App entry file.
+      ├── ErrorBoundary.tsx                      # Error boundary.
       └── Providers.tsx                          # App providers wrapper.
 ```
 

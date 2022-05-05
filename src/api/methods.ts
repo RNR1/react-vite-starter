@@ -1,5 +1,5 @@
 import apiClient, { HTTPMethod } from 'api/client';
-import { Post } from 'api/response';
+import type { Post } from 'api/response';
 
 // Declare your API calls here...
 const API = {

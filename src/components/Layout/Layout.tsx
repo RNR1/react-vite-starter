@@ -1,6 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
+/**
+ * This component contains the main layout of the app
+ * @returns React.ReactNode
+ */
 const Layout = () => (
   <Main>
     <Outlet />

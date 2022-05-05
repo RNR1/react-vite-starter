@@ -3,11 +3,13 @@
     "JSX": "readonly",
     "DocumentEventMap": true,
     "EventListener": true,
+    "VoidFunction": "readonly",
     "vi": "readonly"
   },
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest": true
   },
   "extends": [
     "plugin:react/recommended",
@@ -45,7 +47,7 @@
   },
   "overrides": [
     {
-      "files": ["src/app/ErrorBoundary.tsx"],
+      "files": ["src/app/ErrorBoundary.tsx", "src/test/setup.ts"],
       "rules": {
         "no-console": "off",
         "react/function-component-definition": "off"

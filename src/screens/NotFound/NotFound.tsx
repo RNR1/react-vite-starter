@@ -7,7 +7,9 @@ const NotFound = () => {
   return (
     <Container>
       <h2>{t('title')}</h2>
-      <Link to="/">{t('home-link-caption')}</Link>
+      <Link to="/" replace>
+        {t('home-link-caption')}
+      </Link>
     </Container>
   );
 };

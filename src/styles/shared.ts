@@ -15,7 +15,7 @@ export const textTruncate = `
 
 export const primaryTextColor = '#363636';
 export const bodyGray = '#F7F7F7';
-export const light = '#FFFFFF';
+export const light = '#FFC2C2';
 export const gray = '#adadad';
 export const darkGray = '#e6e6e6';
 export const lightGray = '#EFEFEF';

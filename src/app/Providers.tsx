@@ -1,24 +1,27 @@
 import * as React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import ErrorBoundary from 'app/ErrorBoundary';
 import StylesProvider from 'styles/Provider';
-import store from 'store';
+import StoreProvider from 'store/Provider';
 
-const Providers = ({ children }: React.PropsWithChildren<{}>) => {
+type Props = React.PropsWithChildren<{ withReactQueryDevTools?: boolean }>;
+
+const Providers = ({ children, withReactQueryDevTools = false }: Props) => {
   const queryClient = new QueryClient();
   return (
     <BrowserRouter>
       <StylesProvider>
         <ErrorBoundary>
-          <Provider store={store}>
+          <StoreProvider>
             <QueryClientProvider client={queryClient}>
               {children}
-              <ReactQueryDevtools initialIsOpen={false} />
+              {withReactQueryDevTools && (
+                <ReactQueryDevtools initialIsOpen={false} />
+              )}
             </QueryClientProvider>
-          </Provider>
+          </StoreProvider>
         </ErrorBoundary>
       </StylesProvider>
     </BrowserRouter>

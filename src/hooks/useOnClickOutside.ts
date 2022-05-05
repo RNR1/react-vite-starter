@@ -1,9 +1,17 @@
 import * as React from 'react';
 
-export default function useOnClickOutside<T extends HTMLElement>(
+/**
+ * Custom hook for detecting and handling various document events outside
+ * of a specific browser element
+ *
+ * @param handler - VoidFunction
+ * @param event - DocumentEventMap
+ * @returns [React.RefObject<T>]
+ */
+const useOnClickOutside = <T extends HTMLElement>(
   handler: () => void,
   event: keyof DocumentEventMap = 'mousedown',
-) {
+) => {
   const ref = React.useRef<T>(null);
 
   React.useEffect(() => {
@@ -11,12 +19,15 @@ export default function useOnClickOutside<T extends HTMLElement>(
       if (ref.current?.contains(ev.target as Node)) return;
       handler();
     };
-
-    document.addEventListener(event, listener);
+    if (typeof document !== 'undefined')
+      document.addEventListener(event, listener);
     return () => {
-      document.removeEventListener(event, listener);
+      if (typeof document !== 'undefined')
+        document.removeEventListener(event, listener);
     };
   }, [ref, handler, event]);
 
   return [ref];
-}
+};
+
+export default useOnClickOutside;

@@ -1,9 +1,8 @@
 /**
  * Error Boundary
  *
- * This component will catch any error in you app
- * and will display a user friendly message instead of a white screen
- *
+ * This component will catch any uncaught errors in the app
+ * and display a user-friendly screen instead of a white screen
  */
 import * as React from 'react';
 import styled from 'styled-components';

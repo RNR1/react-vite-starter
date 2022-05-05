@@ -9,12 +9,14 @@ const Button = styled.button.attrs({
   border-radius: 12px;
   padding: 0.5rem 1rem;
   margin: 0.5rem;
-  background: ${({ theme }) => theme.colors.lightGray};
-  color: black;
+  border: none;
+  background: ${({ theme }) => theme.colors.light};
+  color: #010a43;
   user-select: none;
 
   :disabled {
     cursor: not-allowed;
+    opacity: 0.6;
   }
 `;
 

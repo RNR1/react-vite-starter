@@ -2,6 +2,12 @@ import * as React from 'react';
 
 type ReturnType<T> = [T, React.Dispatch<React.SetStateAction<T>>];
 
+/**
+ * a Custom hook for managing localStorage value within React state
+ * @param key - string
+ * @param initialValue - T
+ * @returns [T, React.Dispatch<React.SetStateAction<T>>]
+ */
 const useLocalStorage = <T>(key: string, initialValue: T): ReturnType<T> => {
   const [value, setValue] = React.useState<T>(() => {
     if (typeof initialValue === 'undefined')
