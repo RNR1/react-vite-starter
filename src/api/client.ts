@@ -37,7 +37,7 @@ const axiosConfig: AxiosRequestConfig = {
   baseURL,
 };
 
-const request: AxiosInstance = axios.create(axiosConfig);
+export const request: AxiosInstance = axios.create(axiosConfig);
 export interface ClientConfig extends AxiosRequestConfig {
   url?: string;
 }
