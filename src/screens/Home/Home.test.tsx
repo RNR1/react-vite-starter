@@ -7,7 +7,7 @@ import Providers from 'app/Providers';
 describe('Home tests', () => {
   it('the title is visible', () => {
     render(<Home />, { wrapper: Providers });
-    expect(screen.getByText(/Hello Vite \+ React!/i)).toBeInTheDocument();
+    expect(screen.getByText(/Hello User/i)).toBeInTheDocument();
   });
 
   it('should increment count on click', async () => {

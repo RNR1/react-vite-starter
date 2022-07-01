@@ -1,4 +1,4 @@
-import * as Response from 'api/response';
+import * as Response from 'api/clients/placeholder/response';
 
 export const postResponse = (posts: Response.Post[]) => posts;
 

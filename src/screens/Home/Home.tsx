@@ -4,22 +4,24 @@ import { useQuery, QueryStatus } from 'react-query';
 import styled from 'styled-components';
 import format from 'date-fns/format';
 
-import API from 'api/methods';
-import { Post } from 'api/response';
+import PostsAPI from 'api/clients/placeholder/methods';
+import type { Post } from 'api/clients/placeholder/response';
 import Button from 'components/Button';
 import StyledLogo from 'components/Logo';
 import Link from 'components/Link';
 import List from 'components/List';
 import { useCounter } from 'hooks';
-import { APIError } from 'api/client';
+import { APIError } from 'api/types';
+import { UserContext } from 'contexts/AuthContext';
 
 const Home = () => {
   const { t } = useTranslation('home');
+  const user = React.useContext(UserContext);
   const { count, increment, decrement } = useCounter();
 
   const { data: posts, status } = useQuery<unknown, APIError, Post[]>(
     ['posts'],
-    () => API.getPosts(),
+    () => PostsAPI.getPosts(),
     {
       initialData: [],
       retry: 1,
@@ -34,7 +36,7 @@ const Home = () => {
     <>
       <Header>
         <StyledLogo />
-        <p>{t('hello-vite')}</p>
+        <p>{t('hello-vite', { user: user?.firstName ?? 'User' })}</p>
       </Header>
       <p data-testid="today">Today is {today}</p>
       <p data-testid="counter">count is: {count}</p>
