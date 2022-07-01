@@ -6,7 +6,7 @@ import * as Transform from 'api/transform';
 
 // Declare your API calls here...
 const API = {
-  getPosts: (params: Params.GetPosts) =>
+  getPosts: (params?: Params.GetPosts) =>
     apiClient<Response.Post[]>({
       url: '/posts',
       method: HTTPMethod.GET,

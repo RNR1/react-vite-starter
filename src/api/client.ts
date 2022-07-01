@@ -27,6 +27,12 @@ export enum StatusCode {
   SERVICE_UNAVAILABLE = 503,
 }
 
+export type APIError = {
+  originalRequest: AxiosRequestConfig<any>;
+  status: StatusCode;
+  message: string;
+};
+
 const axiosConfig: AxiosRequestConfig = {
   baseURL,
 };
@@ -81,7 +87,7 @@ export function handleErrorResponse(
   const status: StatusCode =
     err.response?.status || StatusCode.INTERNAL_SERVER_ERROR;
   if (!err.response) {
-    const error = {
+    const error: APIError = {
       originalRequest,
       status,
       message: errors[StatusCode.SERVICE_UNAVAILABLE],
@@ -89,7 +95,7 @@ export function handleErrorResponse(
     throw error;
   }
   if (status in errors) {
-    const error = {
+    const error: APIError = {
       originalRequest,
       status,
       message: errors[status],
@@ -101,7 +107,7 @@ export function handleErrorResponse(
     err?.response?.data?.message ??
     (err.message || errors[StatusCode.INTERNAL_SERVER_ERROR]);
 
-  const error = { originalRequest, message, status };
+  const error: APIError = { originalRequest, message, status };
   throw error;
 }
 
