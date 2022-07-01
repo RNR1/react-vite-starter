@@ -6,8 +6,5 @@ type Post = {
   body: string;
 };
 
-// Add all responses here to make the axios client aware of them
-type Responses = Post[] | void | unknown;
-
-export type { Responses, Post };
+export type { Post };
 export default null;

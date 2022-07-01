@@ -1,11 +1,6 @@
-import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import {
-  errors,
-  handleErrorResponse,
-  StatusCode,
-  request,
-  setHeaderToken,
-} from './client';
+import { describe, expect, it } from 'vitest';
+import errors, { handleErrorResponse } from 'api/errors';
+import { StatusCode } from 'api/types';
 
 const mockFields = {
   isAxiosError: false,
@@ -154,25 +149,5 @@ describe('API client configuration', () => {
         errors[StatusCode.INTERNAL_SERVER_ERROR],
       );
     }
-  });
-});
-
-describe('Set Authorization header helper', () => {
-  const originalHeader = request.defaults.headers.common.Authorization;
-  beforeAll(() => {
-    setHeaderToken();
-  });
-  it('Sets the authorization header correctly', () => {
-    setHeaderToken('Dummy header');
-    expect(request.defaults.headers.common.Authorization).toBe(
-      'Bearer Dummy header',
-    );
-  });
-  it('Clears the header if no token passed', () => {
-    setHeaderToken();
-    expect(request.defaults.headers.common.Authorization).toBe(undefined);
-  });
-  afterAll(() => {
-    setHeaderToken(originalHeader as string);
   });
 });
