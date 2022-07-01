@@ -20,8 +20,7 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     margin: 0;
-    background: #fcfcfc;
-    height: 100%;
+    background-color: #282c34;
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;

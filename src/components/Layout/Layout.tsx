@@ -17,6 +17,7 @@ export const Main = styled.main.attrs({ className: 'main' })`
   color: white;
   height: inherit;
   padding: 1rem;
+  max-height: 1440px;
 `;
 
 export default Layout;

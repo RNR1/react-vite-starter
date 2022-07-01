@@ -11,15 +11,20 @@ import StyledLogo from 'components/Logo';
 import Link from 'components/Link';
 import List from 'components/List';
 import { useCounter } from 'hooks';
+import { APIError } from 'api/client';
 
 const Home = () => {
   const { t } = useTranslation('home');
   const { count, increment, decrement } = useCounter();
 
-  const { data: posts, status } = useQuery<Post[]>(['posts'], API.getPosts, {
-    initialData: [],
-    retry: 1,
-  });
+  const { data: posts, status } = useQuery<unknown, APIError, Post[]>(
+    ['posts'],
+    () => API.getPosts(),
+    {
+      initialData: [],
+      retry: 1,
+    },
+  );
 
   const title = postsTitle[status];
 
@@ -33,7 +38,7 @@ const Home = () => {
       </Header>
       <p data-testid="today">Today is {today}</p>
       <p data-testid="counter">count is: {count}</p>
-      <div>
+      <section className="buttons-container">
         <Button
           data-testid="decrement-button"
           role="button"
@@ -48,8 +53,8 @@ const Home = () => {
         >
           +
         </Button>
-      </div>
-      <p>
+      </section>
+      <p className="recommended-links">
         <Link href="https://reactjs.org">{t('learn-react')}</Link>
         {' | '}
         <Link href="https://vitejs.dev/guide/features.html">

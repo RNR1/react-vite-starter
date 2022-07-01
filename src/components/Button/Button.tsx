@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Button = styled.button.attrs({
-  className: 'count-button',
+  className: 'app-button',
   type: 'button',
 })`
   font-size: 2.5rem;

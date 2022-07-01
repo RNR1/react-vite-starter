@@ -85,5 +85,5 @@ src
 - `test`: Run vitest unit tests on watch mode
 - `lint`: Run ESLint on the entire project
 - `format`: Run Prettier code formatting on the entire project
-- `generate-icons`: Generate JSX components from all the icons from the `assets` directory (the output will be accessible in the `icons` directory
+- `generate-icons`: Generate JSX components from all the icons from the `assets/icons` directory (the output will be accessible in the `icons` directory
 - `storybook`: Run storybook design system
