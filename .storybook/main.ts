@@ -1,7 +1,7 @@
-import { UserConfig } from 'vite';
-import { ExtendedOptions } from '@storybook/builder-vite/types';
+import type { UserConfig } from 'vite';
+import type { ExtendedOptions } from '@storybook/builder-vite/types';
 import tsconfigPathsPlugin from 'vite-tsconfig-paths';
-import fontsPlugin from 'vite-plugin-fonts';
+import { VitePluginFonts } from 'vite-plugin-fonts';
 
 export default {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -16,7 +16,7 @@ export default {
     config.plugins = [
       ...(config.plugins ?? []),
       tsconfigPathsPlugin(),
-      fontsPlugin({
+      VitePluginFonts({
         google: { families: ['Roboto'] },
       }),
     ];

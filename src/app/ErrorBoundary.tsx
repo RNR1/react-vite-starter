@@ -6,25 +6,18 @@
  */
 import * as React from 'react';
 import styled from 'styled-components';
-import { TFunction, useTranslation } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
+import type { WithTranslation } from 'react-i18next';
 import { Main } from 'components/Layout';
 import { Link } from 'react-router-dom';
-import Path from 'routes/paths';
+import Path, { AppPath } from 'routes/paths';
 
 interface State {
   hasError: boolean;
   error?: Error;
 }
 
-interface Props extends React.PropsWithChildren<{}> {
-  t?: TFunction<'translation', undefined>;
-}
-
-const withTranslation = (Component: typeof ErrorBoundary) => (props: Props) => {
-  const { t } = useTranslation('error-boundary');
-
-  return <Component {...props} t={t} />;
-};
+interface Props extends React.PropsWithChildren<WithTranslation> {}
 
 class ErrorBoundary extends React.Component<Props, State> {
   constructor(props: Readonly<Props>) {
@@ -50,7 +43,7 @@ class ErrorBoundary extends React.Component<Props, State> {
         <Wrapper>
           <Title>{t?.('title')}</Title>
           <p>{error?.message}</p>
-          <Link to={Path.Home} reloadDocument>
+          <Link to={AppPath.Home} reloadDocument>
             {t?.('home-link-caption')}
           </Link>
         </Wrapper>
@@ -59,7 +52,7 @@ class ErrorBoundary extends React.Component<Props, State> {
   }
 }
 
-export default withTranslation(ErrorBoundary);
+export default withTranslation()(ErrorBoundary);
 
 const Wrapper = styled.section`
   position: relative;

@@ -7,7 +7,7 @@ import {
 } from 'contexts/AuthContext';
 import hoursToMilliseconds from 'date-fns/hoursToMilliseconds';
 import * as React from 'react';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import Path, { AuthPath } from 'routes/paths';
 import { absolutePath, join } from 'utils/path.utils';
