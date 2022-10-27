@@ -19,7 +19,7 @@ const createClient = <T>(instance: AxiosInstance) => {
       method,
       url,
       data,
-      paramsSerializer,
+      paramsSerializer: { serialize: paramsSerializer },
       ...rest,
     }).then((res: AxiosResponse<T>) => res.data);
 };

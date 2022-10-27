@@ -15,23 +15,24 @@ const errors: Record<StatusCode, string> = {
 export function handleErrorResponse(
   err: AxiosError<Record<'message', string | undefined>>,
 ) {
-  const originalRequest = err.config;
+  const originalRequest = err.config ?? {};
   const status: StatusCode =
     err.response?.status || StatusCode.INTERNAL_SERVER_ERROR;
   if (!err.response) {
-    const error: APIError = {
+    const error = new APIError({
       originalRequest,
       status,
       message: errors[StatusCode.SERVICE_UNAVAILABLE],
-    };
+    });
     throw error;
   }
   if (status in errors) {
-    const error: APIError = {
+    const error = new APIError({
       originalRequest,
       status,
       message: errors[status],
-    };
+    });
+
     throw error;
   }
 
@@ -39,7 +40,7 @@ export function handleErrorResponse(
     err?.response?.data?.message ??
     (err.message || errors[StatusCode.INTERNAL_SERVER_ERROR]);
 
-  const error: APIError = { originalRequest, message, status };
+  const error = new APIError({ originalRequest, message, status });
   throw error;
 }
 

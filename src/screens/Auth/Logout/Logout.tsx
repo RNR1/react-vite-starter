@@ -1,6 +1,6 @@
 import { SetAuthTokenContext, SetUserContext } from 'contexts/AuthContext';
 import * as React from 'react';
-import { useQueryClient } from 'react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import { Navigate } from 'react-router-dom';
 import Path from 'routes/paths';
 import { absolutePath } from 'utils/path.utils';

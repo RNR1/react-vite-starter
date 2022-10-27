@@ -1,3 +1,4 @@
+import * as React from 'react';
 import StylesProvider from '../src/styles/Provider';
 
 export const parameters = {

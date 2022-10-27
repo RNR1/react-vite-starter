@@ -6,7 +6,7 @@ import { useGoogleLogin, GoogleLoginResponse } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import type { ReactFacebookLoginInfo } from 'react-facebook-login';
 import { SetAuthTokenContext, SetUserContext } from 'contexts/AuthContext';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { User } from 'models/User';
 import { setHeaderToken } from 'api/clients/auth/client';
 

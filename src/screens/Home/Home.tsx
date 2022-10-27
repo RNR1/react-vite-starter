@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useQuery, QueryStatus } from 'react-query';
+import { useQuery, QueryStatus } from '@tanstack/react-query';
 import styled from 'styled-components';
 import format from 'date-fns/format';
 
@@ -11,7 +11,7 @@ import StyledLogo from 'components/Logo';
 import Link from 'components/Link';
 import List from 'components/List';
 import { useCounter } from 'hooks';
-import { APIError } from 'api/types';
+import { APIErrorConfig } from 'api/types';
 import { UserContext } from 'contexts/AuthContext';
 
 const Home = () => {
@@ -19,7 +19,7 @@ const Home = () => {
   const user = React.useContext(UserContext);
   const { count, increment, decrement } = useCounter();
 
-  const { data: posts, status } = useQuery<unknown, APIError, Post[]>(
+  const { data: posts, status } = useQuery<unknown, APIErrorConfig, Post[]>(
     ['posts'],
     () => PostsAPI.getPosts(),
     {

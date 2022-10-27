@@ -103,8 +103,10 @@ src
 - `dev`: Run dev server
 - `build`: Run build (will be outputted into `dist` directory)
 - `serve`: Serve a preview of the production build (not optimized for production use, just for preview)
-- `test`: Run vitest unit tests on watch mode
+- `test`: Run vitest unit tests (watch mode)
+- `test:run`: Run vitest unit tests (do not watch)
 - `lint`: Run ESLint on the entire project
 - `format`: Run Prettier code formatting on the entire project
+- `isready`: Run format, lint, type-check, build and tests at once
 - `generate-icons`: Generate JSX components from all the icons from the `assets/icons` directory (the output will be accessible in the `icons` directory
 - `storybook`: Run storybook design system

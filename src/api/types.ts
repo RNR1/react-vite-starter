@@ -18,8 +18,21 @@ export enum StatusCode {
   SERVICE_UNAVAILABLE = 503,
 }
 
-export type APIError = {
+export type APIErrorConfig = {
   originalRequest: AxiosRequestConfig<any>;
   status: StatusCode;
   message: string;
 };
+
+export class APIError extends Error {
+  originalRequest: AxiosRequestConfig<any>;
+
+  status: StatusCode;
+
+  constructor(config: APIErrorConfig) {
+    super();
+    this.originalRequest = config.originalRequest;
+    this.status = config.status;
+    this.message = config.message;
+  }
+}
