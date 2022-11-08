@@ -11,6 +11,7 @@ import type { WithTranslation } from 'react-i18next';
 import { Main } from 'components/Layout';
 import { Link } from 'react-router-dom';
 import Path, { AppPath } from 'routes/paths';
+import { absolutePath, join } from 'utils/path.utils';
 
 interface State {
   hasError: boolean;
@@ -43,7 +44,7 @@ class ErrorBoundary extends React.Component<Props, State> {
         <Wrapper>
           <Title>{t?.('title')}</Title>
           <p>{error?.message}</p>
-          <Link to={AppPath.Home} reloadDocument>
+          <Link to={absolutePath(join(Path.App, AppPath.Home))} reloadDocument>
             {t?.('home-link-caption')}
           </Link>
         </Wrapper>

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { render, screen, userEvent } from 'utils/test-utils';
+import { render, screen } from 'utils/test-utils';
 import List from 'components/List';
 import type { Post } from 'api/clients/placeholder/response';
 import posts from 'mocks/posts.json';

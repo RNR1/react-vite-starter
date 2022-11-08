@@ -1,5 +1,5 @@
 import { AuthAPI } from 'api/clients/auth/methods';
-import Button from 'components/Button/Button';
+import Button from 'components/Button';
 import config from 'constants/config';
 import * as React from 'react';
 import { useGoogleLogin, GoogleLoginResponse } from 'react-google-login';
