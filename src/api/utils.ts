@@ -1,4 +1,4 @@
-import type { AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
 
 export function paramsSerializer(params: AxiosRequestConfig['params']) {
