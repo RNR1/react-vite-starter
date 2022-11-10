@@ -53,7 +53,7 @@ class ErrorBoundary extends React.Component<Props, State> {
   }
 }
 
-export default withTranslation()(ErrorBoundary);
+export default withTranslation('error-boundary')(ErrorBoundary);
 
 const Wrapper = styled.section`
   position: relative;

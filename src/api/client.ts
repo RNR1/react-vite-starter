@@ -3,7 +3,7 @@ import { HTTPMethod } from 'api/types';
 import { paramsSerializer } from 'api/utils';
 import { handleErrorResponse } from 'api/errors';
 
-const createClient = <T>(instance: AxiosInstance) => {
+const createClient = (instance: AxiosInstance) => {
   instance.interceptors.response.use(
     (res: AxiosResponse) => res,
     handleErrorResponse,
