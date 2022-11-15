@@ -22,7 +22,6 @@ const RequireAuthProvider = () => {
     ['verifyToken'],
     () => AuthAPI.verifyToken({ token: authToken ?? '' }),
     {
-      enabled: Boolean(authToken),
       refetchOnWindowFocus: false,
       refetchInterval: hoursToMilliseconds(24),
       retry: false,

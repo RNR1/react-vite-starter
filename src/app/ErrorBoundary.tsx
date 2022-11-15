@@ -1,9 +1,3 @@
-/**
- * Error Boundary
- *
- * This component will catch any uncaught errors in the app
- * and display a user-friendly screen instead of a white screen
- */
 import * as React from 'react';
 import styled from 'styled-components';
 import { withTranslation } from 'react-i18next';
@@ -20,6 +14,12 @@ interface State {
 
 interface Props extends React.PropsWithChildren<WithTranslation> {}
 
+/**
+ * Error Boundary
+ *
+ * This component will catch any uncaught errors in the app
+ * and display a user-friendly screen instead of a white screen
+ */
 class ErrorBoundary extends React.Component<Props, State> {
   constructor(props: Readonly<Props>) {
     super(props);
