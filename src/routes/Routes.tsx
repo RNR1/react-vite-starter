@@ -5,6 +5,7 @@ import {
   RouteObject,
   useRoutes,
   RouterProvider,
+  Outlet,
 } from 'react-router-dom';
 import Screen from 'screens';
 import Path, { AppPath, AuthPath } from 'routes/paths';
@@ -38,7 +39,11 @@ const routes: RouteObject[] = [
       },
       {
         path: Path.App,
-        element: <RequireAuthProvider />,
+        element: (
+          <RequireAuthProvider>
+            <Outlet />
+          </RequireAuthProvider>
+        ),
         children: [
           { path: AppPath.Home, element: <Screen.Home /> },
           {
