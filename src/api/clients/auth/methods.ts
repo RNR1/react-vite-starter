@@ -6,25 +6,25 @@ import { HTTPMethod } from 'api/types';
 
 export const AuthAPI = {
   loginWithGoogle: (data: Payload.SocialLogin) =>
-    authClient<Response.SocialLogin>({
+    authClient<Response.Login>({
       url: '/auth/login/google/',
       method: HTTPMethod.POST,
       data,
     }).then(Transform.socialLogin),
   loginWithFacebook: (data: Payload.SocialLogin) =>
-    authClient<Response.SocialLogin>({
+    authClient<Response.Login>({
       url: '/auth/login/facebook/',
       method: HTTPMethod.POST,
       data,
     }).then(Transform.socialLogin),
-  verifyToken: (data: Payload.Token) =>
+  verifyToken: (data: Payload.VerifyToken) =>
     authClient<void>({
       url: '/auth/verify-token/',
       method: HTTPMethod.POST,
       data,
     }),
-  refreshToken: (data: Payload.Token) =>
-    authClient<Response.SocialLogin>({
+  refreshToken: (data: Payload.RefreshToken) =>
+    authClient<Response.Login>({
       url: '/auth/refresh-token/',
       method: HTTPMethod.POST,
       data,

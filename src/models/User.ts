@@ -1,7 +1,6 @@
-export type User = {
+export type UserDetails = {
   id: number;
   firstName: string;
   lastName: string;
-  apiKey: string;
   email: string;
 };

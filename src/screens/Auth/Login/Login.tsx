@@ -5,17 +5,28 @@ import * as React from 'react';
 import { useGoogleLogin, GoogleLoginResponse } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import type { ReactFacebookLoginInfo } from 'react-facebook-login';
-import { SetAuthTokenContext, SetUserContext } from 'contexts/AuthContext';
+import {
+  SetAuthTokenContext,
+  SetUserContext,
+  SetRefreshTokenContext,
+} from 'contexts/AuthContext';
 import { useMutation } from '@tanstack/react-query';
-import { User } from 'models/User';
+import { UserDetails } from 'models/User';
 import { setHeaderToken } from 'api/clients/auth/client';
 
 const Login = () => {
   const setUser = React.useContext(SetUserContext);
   const setAuthToken = React.useContext(SetAuthTokenContext);
-  const onSuccess = (response: { token: string; user: User }) => {
+  const setRefreshToken = React.useContext(SetRefreshTokenContext);
+
+  const onSuccess = (response: {
+    refresh: string;
+    token: string;
+    user: UserDetails;
+  }) => {
     setHeaderToken(response.token);
     setAuthToken(response.token);
+    setRefreshToken(response.refresh);
     setUser(response.user);
   };
 
