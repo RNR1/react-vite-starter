@@ -1,38 +1,35 @@
 import * as React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Element from 'components/Button';
+import type { StoryObj, Meta, ReactRenderer, Args } from '@storybook/react';
+import Button from 'components/Button';
+import { useArgs } from '@storybook/client-api';
 
-const Button = (
-  props: Omit<
-    React.DetailedHTMLProps<
-      React.ButtonHTMLAttributes<HTMLButtonElement>,
-      HTMLButtonElement
-    >,
-    'type' | 'className' | 'ref'
-  >,
-) => <Element {...props} />;
+const Render = (args: Args) => {
+  const [{ count, disabled, children }, updateArgs] = useArgs();
+  
+  React.useEffect(() => {
+    if (disabled) updateArgs({ children: "I'm on a break"})
+    else updateArgs({ children: 'Clicked {{count}} times'})
+  }, [disabled, updateArgs])
+  
+  return <Button {...args} onClick={() => updateArgs({ count: count + 1 })}>
+    {children?.toString().replace('{{count}}', count)}
+  </Button>
+}
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
+const meta = {
   title: 'Components/Button',
   component: Button,
+  tags: ['autodocs'],
+  render: Render,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-} as ComponentMeta<typeof Button>;
+} satisfies Meta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => {
-  const { disabled } = args;
-  const [count, setCount] = React.useState(0);
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-  const onClick = () => setCount((prev) => prev + 1);
-  return (
-    <Button {...args} onClick={onClick}>
-      {disabled ? "I'm on a break" : <>Clicked {count} times!</>}
-    </Button>
-  );
-};
 
-export const Standard = Template.bind({});
-
-Standard.args = {
-  disabled: false,
+export const Standard: Story = {
+  args: { disabled: false },
+  argTypes: { count: { defaultValue: 1, type: 'number', description: "This is a storybook only argument for demonstration" }, children: { type: 'string', defaultValue: 'Clicked {{count}} times' } },
 };

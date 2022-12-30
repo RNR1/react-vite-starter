@@ -1,16 +1,15 @@
-import * as React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Element from 'components/Logo';
-
-const Logo = (props: any) => <Element {...props} />;
+import { StoryObj, Meta } from '@storybook/react';
+import Logo from 'components/Logo';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
+const meta = {
   title: 'Components/Logo',
   component: Logo,
+  tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-} as ComponentMeta<typeof Logo>;
+} satisfies Meta<typeof Logo>;
 
-const Template: ComponentStory<typeof Logo> = (args) => <Logo {...args} />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Standard = Template.bind({});
+export const Standard: Story = {};
