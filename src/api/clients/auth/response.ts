@@ -1,11 +1,12 @@
-type Token = Record<'token', string>;
+export type Token = Record<`${'access' | 'refresh'}_token`, string>;
 
-type User = {
+type UserDetails = {
   id: number;
   email: string;
-  api_key: string;
   first_name: string;
   last_name: string;
 };
 
-export type SocialLogin = Token & Record<'user', User>;
+export type Login = Token & Record<'user', UserDetails>;
+
+export type RefreshToken = Record<'access', string>;
