@@ -1,18 +1,14 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { withTranslation } from 'react-i18next';
-import type { WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { Main } from 'components/Layout';
 import { Link } from 'react-router-dom';
 import Path, { AppPath } from 'routes/paths';
 import { absolutePath, join } from 'utils/path.utils';
-
-interface State {
-  hasError: boolean;
-  error?: Error;
-}
-
-interface Props extends React.PropsWithChildren<WithTranslation> {}
+import {
+  ErrorBoundary as ErrorBoundaryWrapper,
+  FallbackProps,
+} from 'react-error-boundary';
 
 /**
  * Error Boundary
@@ -20,40 +16,31 @@ interface Props extends React.PropsWithChildren<WithTranslation> {}
  * This component will catch any uncaught errors in the app
  * and display a user-friendly screen instead of a white screen
  */
-class ErrorBoundary extends React.Component<Props, State> {
-  constructor(props: Readonly<Props>) {
-    super(props);
-    this.state = { hasError: false };
-  }
+const ErrorBoundary = ({ children }: React.PropsWithChildren) => (
+  <ErrorBoundaryWrapper FallbackComponent={Fallback}>
+    {children}
+  </ErrorBoundaryWrapper>
+);
 
-  static getDerivedStateFromError(error: Error) {
-    return { hasError: true, error };
-  }
+export default ErrorBoundary;
 
-  componentDidCatch(error: Error, errorInfo: unknown) {
-    if (import.meta.env.DEV) console.error({ error, errorInfo });
-    this.setState({ error });
-  }
+const Fallback = ({ error }: FallbackProps) => {
+  const { t } = useTranslation('error-boundary');
 
-  render(): React.ReactNode {
-    const { hasError, error } = this.state;
-    const { children, t } = this.props;
-    if (!hasError) return children;
-    return (
-      <Main>
-        <Wrapper>
-          <Title>{t?.('title')}</Title>
-          <p>{error?.message}</p>
-          <Link to={absolutePath(join(Path.App, AppPath.Home))} reloadDocument>
-            {t?.('home-link-caption')}
-          </Link>
-        </Wrapper>
-      </Main>
-    );
-  }
-}
+  if (import.meta.env.DEV) console.error({ error });
 
-export default withTranslation('error-boundary')(ErrorBoundary);
+  return (
+    <Main>
+      <Wrapper>
+        <Title>{t?.('title')}</Title>
+        <p>{error?.message}</p>
+        <Link to={absolutePath(join(Path.App, AppPath.Home))} reloadDocument>
+          {t?.('home-link-caption')}
+        </Link>
+      </Wrapper>
+    </Main>
+  );
+};
 
 const Wrapper = styled.section`
   position: relative;
