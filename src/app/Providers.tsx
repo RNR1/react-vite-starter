@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import ErrorBoundary from 'app/ErrorBoundary';
@@ -14,22 +13,20 @@ const Providers = ({ children, withReactQueryDevTools = false }: Props) => {
     defaultOptions: { queries: { refetchOnWindowFocus: false } },
   });
   return (
-    <BrowserRouter>
-      <StylesProvider>
-        <ErrorBoundary>
-          <StoreProvider>
-            <QueryClientProvider client={queryClient}>
-              <AuthContextProvider>
-                {children}
-                {withReactQueryDevTools && (
-                  <ReactQueryDevtools initialIsOpen={false} />
-                )}
-              </AuthContextProvider>
-            </QueryClientProvider>
-          </StoreProvider>
-        </ErrorBoundary>
-      </StylesProvider>
-    </BrowserRouter>
+    <StylesProvider>
+      <ErrorBoundary>
+        <StoreProvider>
+          <QueryClientProvider client={queryClient}>
+            <AuthContextProvider>
+              {children}
+              {withReactQueryDevTools && (
+                <ReactQueryDevtools initialIsOpen={false} />
+              )}
+            </AuthContextProvider>
+          </QueryClientProvider>
+        </StoreProvider>
+      </ErrorBoundary>
+    </StylesProvider>
   );
 };
 
