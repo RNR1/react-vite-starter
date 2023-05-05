@@ -1,18 +1,26 @@
 import { describe, expect, it } from 'vitest';
 import errors, { handleErrorResponse } from 'api/errors';
 import { StatusCode } from 'api/types';
+import { AxiosResponse, AxiosHeaders } from 'axios';
 
 const mockFields = {
   isAxiosError: false,
   toJSON: vi.fn(),
   name: '',
-  config: {},
+  config: {
+    headers: new AxiosHeaders(),
+  },
 };
 
-const mockResponseFields = {
-  headers: {},
+const mockResponseFields: Pick<
+  AxiosResponse,
+  'headers' | 'config' | 'statusText'
+> = {
+  headers: new AxiosHeaders(),
   statusText: '',
-  config: {},
+  config: {
+    headers: new AxiosHeaders(),
+  },
 };
 
 describe('API client configuration', () => {
