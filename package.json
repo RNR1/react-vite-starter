@@ -80,7 +80,7 @@
     "prettier": "2.8.8",
     "storybook": "7.0.12",
     "typescript": "5.0.4",
-    "vite": "4.3.6",
+    "vite": "4.3.8",
     "vite-plugin-eslint": "1.8.1",
     "vite-plugin-fonts": "0.7.0",
     "vite-plugin-svgr": "3.2.0",
