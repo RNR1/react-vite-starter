@@ -18,7 +18,7 @@ This is a starter boilerplate for React + Vite with:
 - [React Google Login](https://github.com/anthonyjgrove/react-google-login)
 - [React Facebook Login](https://github.com/keppelen/react-facebook-login)
 
-## Installation:
+## Installation
 
 - Clone and npm i.
 - Run `cp .env.example .env` to create a .env file for environment variables (use PS on windows).
@@ -35,9 +35,9 @@ You should add your google and facebook credentials in the `.env` file in order 
 - Javascript/React: [AirBnB](https://github.com/airbnb/javascript).
 - Commit Message Format: [Angular commit message format](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format).
 
-## Folder Structure:
+## Folder Structure
 
-```
+```shell
 src
 ├── api
 │     ├── client.ts                             # API client factory
