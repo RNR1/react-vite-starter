@@ -12,9 +12,9 @@ const AppLogoSpin = keyframes`
 
 const Logo = styled(BrandLogo).attrs({
   className: 'app-logo',
-  title: 'logo',
   width: '200px',
   height: '200px',
+  'aria-label': 'logo',
 })`
   pointer-events: none;
   user-select: none;

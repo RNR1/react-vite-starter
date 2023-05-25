@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import type { InterpolationFunction } from 'styled-components';
+import { Interpolation } from 'styled-components/dist/types';
 
 export const centerFlex = `
   display: flex;
@@ -28,7 +28,7 @@ export const warning = '#FFA700';
 export const error = '#FA0B0B';
 export const info = '#1673DB';
 
-export type RotateIcon = InterpolationFunction<{
+export type RotateIcon = Interpolation<{
   isOpen: boolean;
   openDegree?: number;
   closedDegree?: number;
@@ -124,7 +124,7 @@ export const TextContent = styled.p<{
 `;
 
 export type TextAlign = 'left' | 'center' | 'right';
-export type AlignItems = InterpolationFunction<{
+export type AlignItems = Interpolation<{
   align: TextAlign;
 }>;
 export const alignItems: AlignItems = ({ align = 'center' }) =>

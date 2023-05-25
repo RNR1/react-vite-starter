@@ -1,8 +1,5 @@
-import {
-  css,
-  FlattenSimpleInterpolation,
-  SimpleInterpolation,
-} from 'styled-components';
+import type { Interpolation } from 'styled-components/dist/types';
+import { css } from 'styled-components';
 import {
   centerFlex,
   scrollbar,
@@ -50,13 +47,13 @@ export type ThemeType = {
   };
   utils: {
     centerFlex: string;
-    scrollbar: SimpleInterpolation;
-    spinAnimation: FlattenSimpleInterpolation;
+    scrollbar: Interpolation<object>;
+    spinAnimation: Interpolation<object>;
     rotateIcon: RotateIcon;
     quickTransition: string;
     normalTransition: string;
     alignItems: AlignItems;
-    centerBackgroundImage: FlattenSimpleInterpolation;
+    centerBackgroundImage: Interpolation<object>;
   };
   spacing: {
     s: number;
@@ -66,8 +63,8 @@ export type ThemeType = {
     xxl: number;
   };
   shadow: {
-    m: FlattenSimpleInterpolation;
-    l: FlattenSimpleInterpolation;
+    m: Interpolation<object>;
+    l: Interpolation<object>;
   };
   textSizes: {
     s: number;

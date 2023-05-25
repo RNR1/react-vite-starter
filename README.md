@@ -20,9 +20,15 @@ This is a starter boilerplate for React + Vite with:
 
 ## Installation
 
-- Clone and npm i.
+### Prerequisites
+
+- Make sure to have `pnpm` installed.
+
+### Steps
+
+- Clone and `pnpm i`.
 - Run `cp .env.example .env` to create a .env file for environment variables (use PS on windows).
-- Run `npm run dev`.
+- Run `pnpm run dev`.
 - Navigate to `localhost:3000`.
 
 ## Authentication

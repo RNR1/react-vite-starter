@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import eslintPlugin from 'vite-plugin-eslint';
 import svgrPlugin from 'vite-plugin-svgr';
-import { VitePluginFonts } from 'vite-plugin-fonts';
+import Unfonts from 'unplugin-fonts/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,14 +14,11 @@ export default defineConfig({
     eslintPlugin({ failOnError: true }),
     react(),
     svgrPlugin({ svgrOptions: { configFile: '.svgrrc.json' } }),
-    VitePluginFonts({ google: { families: ['Roboto'] } }),
+    Unfonts({ google: { families: ['Roboto'] } }),
   ],
   test: {
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
-    coverage: {
-      exclude: ['./constants/config.ts'],
-    },
   },
 });

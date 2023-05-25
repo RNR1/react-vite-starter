@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import { useScrollPosition } from 'hooks';
 import { MOCK_PAGE_Y_OFFSET } from 'constants/test';
 
