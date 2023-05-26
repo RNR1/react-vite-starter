@@ -47,8 +47,8 @@ dependencies:
     specifier: 6.11.2
     version: 6.11.2(react-dom@18.2.0)(react@18.2.0)
   styled-components:
-    specifier: 6.0.0-rc.2
-    version: 6.0.0-rc.2(react-dom@18.2.0)(react@18.2.0)
+    specifier: 6.0.0-rc.2-4007
+    version: 6.0.0-rc.2-4007(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@babel/core':
@@ -7894,7 +7894,6 @@ packages:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
-    dev: true
 
   /natural-compare-lite@1.4.0:
     resolution: {integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==}
@@ -8365,7 +8364,6 @@ packages:
       nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
-    dev: true
 
   /prelude-ls@1.1.2:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==}
@@ -9301,7 +9299,6 @@ packages:
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /source-map-support@0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
@@ -9518,9 +9515,9 @@ packages:
       acorn: 8.8.2
     dev: true
 
-  /styled-components@6.0.0-rc.2(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Rtgv4GQu2XrMGybwUqI+uoD5OTeldyedAiO2eVWtM3aF4qUoKTrWN/Y4uHtSlX+DVzXpH7W/DXFH+noKKxui0Q==}
-    engines: {node: '>= 14'}
+  /styled-components@6.0.0-rc.2-4007(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-MfdCEa1s5Qogv0XRkS1u4udh5mLRQR1jceyScjvg0uafQdICHnH81pi22EXRbG6Eqx+Cs3TCtwgOxIt7PTQBCQ==}
+    engines: {node: '>= 16'}
     peerDependencies:
       babel-plugin-styled-components: '>= 2'
       react: '>= 16.8.0'
@@ -9541,6 +9538,7 @@ packages:
       '@babel/traverse': 7.21.5
       '@emotion/unitless': 0.8.1
       css-to-react-native: 3.2.0
+      postcss: 8.4.23
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       shallowequal: 1.1.0
