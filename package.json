@@ -79,7 +79,7 @@
     "storybook": "7.0.17",
     "typescript": "5.0.4",
     "unplugin-fonts": "^1.0.3",
-    "vite": "4.3.8",
+    "vite": "4.3.9",
     "vite-plugin-eslint": "1.8.1",
     "vite-plugin-svgr": "3.2.0",
     "vite-tsconfig-paths": "4.2.0",
