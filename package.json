@@ -36,7 +36,7 @@
     "styled-components": "6.0.2"
   },
   "devDependencies": {
-    "@babel/core": "7.22.5",
+    "@babel/core": "7.22.6",
     "@commitlint/cli": "17.6.6",
     "@commitlint/config-angular": "17.6.6",
     "@storybook/addon-essentials": "7.0.25",
