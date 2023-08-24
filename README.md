@@ -15,8 +15,6 @@ This is a starter boilerplate for React + Vite with:
 - [React-i18next](https://react.i18next.com/) (Internationalization).
 - [Vitest](https://vitest.dev/) (Unit tests framework)
 - [React testing library](https://testing-library.com/docs/react-testing-library/intro/) (DOM testing).
-- [React Google Login](https://github.com/anthonyjgrove/react-google-login)
-- [React Facebook Login](https://github.com/keppelen/react-facebook-login)
 
 ## Installation
 
@@ -30,11 +28,6 @@ This is a starter boilerplate for React + Vite with:
 - Run `cp .env.example .env` to create a .env file for environment variables (use PS on windows).
 - Run `pnpm run dev`.
 - Navigate to `localhost:3000`.
-
-## Authentication
-
-This starter implements a basic social login with Facebook and Google, it implemented based on a Django REST Auth mechanism, but can be adjusted depending on the relevant backend.
-You should add your google and facebook credentials in the `.env` file in order to make it work.
 
 ## Style Guides
 
@@ -112,7 +105,10 @@ src
 - `test`: Run vitest unit tests (watch mode)
 - `test:run`: Run vitest unit tests (do not watch)
 - `lint`: Run ESLint on the entire project
+- `lint:knip`: Run Knip on the entire project to locate unused code
+- `lint:spelling`: Runs cSpell cli to check for unknown words and typos
 - `format`: Run Prettier code formatting on the entire project
 - `isready`: Run format, lint, type-check, build and tests at once
 - `generate-icons`: Generate JSX components from all the icons from the `assets/icons` directory (the output will be accessible in the `icons` directory
 - `storybook`: Run storybook design system
+- `release`: Generate a tagged release and update the changelog document

@@ -1,7 +1,11 @@
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import { QueryClient } from '@tanstack/react-query';
 import { HTTPMethod } from 'api/types';
-import { paramsSerializer } from 'api/utils';
 import { handleErrorResponse } from 'api/errors';
+
+export const queryClient = new QueryClient({
+  defaultOptions: { queries: { refetchOnWindowFocus: false } },
+});
 
 const createClient = (instance: AxiosInstance) => {
   instance.interceptors.response.use(
@@ -9,27 +13,21 @@ const createClient = (instance: AxiosInstance) => {
     handleErrorResponse,
   );
 
-  return <T>({
+  return <Res = unknown, Data = unknown>({
     method = HTTPMethod.GET,
     url,
     data,
     ...rest
-  }: AxiosRequestConfig): Promise<T> =>
-    instance({
+  }: AxiosRequestConfig<Data>): Promise<Res> =>
+    instance<unknown, AxiosResponse<Res>, Data>({
       method,
       url,
       data,
-      paramsSerializer: { serialize: paramsSerializer },
+      paramsSerializer: { indexes: null },
+      withCredentials: true,
       ...rest,
-    }).then((res: AxiosResponse<T>) => res.data);
+    }).then((res) => res.data);
 };
 
-export const createAuthHeaderSetter =
-  (instance: AxiosInstance) => (token?: string) => {
-    if (token)
-      instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-    else delete instance.defaults.headers.common.Authorization;
-    return token;
-  };
-
+export type Client = ReturnType<typeof createClient>;
 export default createClient;

@@ -1,20 +1,39 @@
 {
   "version": "0.2",
-  "ignorePaths": [],
+  "ignorePaths": [
+    "./coverage*",
+    "./storybook-static",
+    "CHANGELOG.md",
+    "node_modules",
+    "pnpm-lock.yaml",
+    "./src/mocks",
+    "public",
+    "dist"
+  ],
   "dictionaryDefinitions": [],
-  "dictionaries": [],
+  "dictionaries": ["typescript"],
   "words": [
     "autodocs",
+    "commitlint",
+    "isready",
+    "knip",
+    "overscan",
+    "reduxjs",
+    "Roboto",
     "svgrrc",
     "tanstack",
     "testid",
     "Unfonts",
     "unplugin",
     "vitejs",
-    "vitest"
+    "vitest",
+    "webp",
+    "Fira",
+    "Segoe",
+    "Cantarell",
+    "Neue",
+    "stylis"
   ],
-  "ignoreWords": [
-    "svgr"
-  ],
+  "ignoreWords": ["svgr"],
   "import": []
 }

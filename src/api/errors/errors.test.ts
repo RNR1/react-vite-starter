@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import errors, { handleErrorResponse } from 'api/errors';
 import { StatusCode } from 'api/types';
 import { AxiosResponse, AxiosHeaders } from 'axios';
+import errors, { handleErrorResponse } from 'api/errors';
 
 const mockFields = {
   isAxiosError: false,

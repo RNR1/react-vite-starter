@@ -1,0 +1,17 @@
+{
+  "back-button-caption": "take me back",
+  "contact-button-caption": "contact support",
+  "not-found": {
+    "title": "Oops! Page Not Found.",
+    "subtitle": "We're sorry, but the page you are looking for cannot be found. It may have been moved, renamed, or temporarily unavailable."
+  },
+  "unauthorized": {
+    "title": "Oops! Access Denied.",
+    "subtitle": "We're sorry, but it seems you don't have permission to access this resource. The requested page or content is restricted and requires higher privileges."
+  },
+  "server-error": {
+    "title": "Oops! Internal Server Error.",
+    "subtitle": "We apologize for the inconvenience, but it seems that something went wrong on our end.Our team is already working diligently to fix the issue. Please try again later."
+  },
+  "home-link-caption": "Take me home"
+}

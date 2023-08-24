@@ -1,8 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import en from 'i18n/en.json';
-
-export const resources = { en };
+import resources from 'i18n/resources';
+import Language from 'i18n/supportedLanguages';
 
 export default i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -10,9 +9,10 @@ export default i18n
     // the translations
     // (tip move them in a JSON file and import them,
     // or even better, manage them via a UI: https://react.i18next.com/guides/multiple-translation-files#manage-your-translations-with-a-management-gui)
+    postProcess: ['pseudo'],
     resources,
-    lng: 'en', // if you're using a language detector, do not define the lng option
-    fallbackLng: 'en',
+    lng: Language.En,
+    fallbackLng: Language.En,
     interpolation: {
       escapeValue: false, // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
     },

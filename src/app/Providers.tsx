@@ -1,33 +1,27 @@
-import * as React from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import React from 'react';
+
+import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import ErrorBoundary from 'app/ErrorBoundary';
+import { HelmetProvider } from 'react-helmet-async';
 import StylesProvider from 'styles/Provider';
 import StoreProvider from 'store/Provider';
-import AuthContextProvider from 'contexts/AuthContext';
+import { queryClient } from 'api/client';
 
 type Props = React.PropsWithChildren<{ withReactQueryDevTools?: boolean }>;
 
-const Providers = ({ children, withReactQueryDevTools = false }: Props) => {
-  const queryClient = new QueryClient({
-    defaultOptions: { queries: { refetchOnWindowFocus: false } },
-  });
-  return (
+const Providers = ({ children, withReactQueryDevTools = false }: Props) => (
+  <HelmetProvider>
     <StylesProvider>
-      <ErrorBoundary>
-        <StoreProvider>
-          <QueryClientProvider client={queryClient}>
-            <AuthContextProvider>
-              {children}
-              {withReactQueryDevTools && (
-                <ReactQueryDevtools initialIsOpen={false} />
-              )}
-            </AuthContextProvider>
-          </QueryClientProvider>
-        </StoreProvider>
-      </ErrorBoundary>
+      <StoreProvider>
+        <QueryClientProvider client={queryClient}>
+          {children}
+          {withReactQueryDevTools && (
+            <ReactQueryDevtools initialIsOpen={false} />
+          )}
+        </QueryClientProvider>
+      </StoreProvider>
     </StylesProvider>
-  );
-};
+  </HelmetProvider>
+);
 
 export default Providers;

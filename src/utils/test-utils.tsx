@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { Provider } from 'react-redux';
 import { render, RenderOptions } from '@testing-library/react';
-import store from 'store';
 
 const customRender = (ui: React.ReactElement, options: RenderOptions = {}) =>
   render(ui, {

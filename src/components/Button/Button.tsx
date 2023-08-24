@@ -14,7 +14,7 @@ const Button = styled.button.attrs({
   color: #010a43;
   user-select: none;
 
-  :disabled {
+  &:disabled {
     cursor: not-allowed;
     opacity: 0.6;
   }

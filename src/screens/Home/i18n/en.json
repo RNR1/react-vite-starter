@@ -1,0 +1,7 @@
+{
+  "home": {
+    "hello-vite": "Hello {{user}}",
+    "learn-react": "Learn React",
+    "vite-docs": "Vite Docs"
+  }
+}

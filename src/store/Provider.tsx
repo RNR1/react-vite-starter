@@ -8,7 +8,7 @@ import store from 'store';
  * This component will provide the global store
  * to any wrapped children
  */
-const StoreProvider = ({ children }: React.PropsWithChildren<{}>) => (
+const StoreProvider = ({ children }: React.PropsWithChildren) => (
   <Provider store={store}>{children}</Provider>
 );
 

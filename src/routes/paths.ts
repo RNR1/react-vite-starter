@@ -3,7 +3,6 @@ enum Path {
   ROOT = '/',
   App = 'app',
   Auth = 'auth',
-  NotFound = '404',
 }
 
 export enum AppPath {

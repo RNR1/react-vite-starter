@@ -10,14 +10,16 @@ const errors: Record<StatusCode, string> = {
     'The requested content does not exist, please try something else',
   [StatusCode.FORBIDDEN]: 'You are not allowed to access this content',
   [StatusCode.UNAUTHORIZED]: 'You should login in order to access this content',
+  [StatusCode.TOO_MANY_REQUESTS]:
+    'You exceeded the amount of requests for this content, please try again later',
 };
 
 export function handleErrorResponse(
-  err: AxiosError<Record<'message', string | undefined>>,
+  err: AxiosError<Record<string, string | string[] | undefined>>,
 ) {
   const originalRequest = err.config ?? {};
   const status: StatusCode =
-    err.response?.status || StatusCode.INTERNAL_SERVER_ERROR;
+    err.response?.status ?? StatusCode.INTERNAL_SERVER_ERROR;
   if (!err.response) {
     const error = new APIError({
       originalRequest,
@@ -36,11 +38,21 @@ export function handleErrorResponse(
     throw error;
   }
 
-  const message =
+  const validationErrors: Record<string, string[]> =
+    (err?.response?.data as Record<string, string[]>) ?? null;
+
+  let message =
     err?.response?.data?.message ??
     (err.message || errors[StatusCode.INTERNAL_SERVER_ERROR]);
 
-  const error = new APIError({ originalRequest, message, status });
+  message = Array.isArray(message) ? message[0] : message;
+
+  const error = new APIError({
+    originalRequest,
+    message,
+    status,
+    validationErrors: message in validationErrors ? null : validationErrors,
+  });
   throw error;
 }
 

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://unpkg.com/knip@next/schema.json",
+  "entry": ["src/main.tsx", ".storybook/main.ts"],
+  "ignore": [
+    "**/*.d.ts",
+    "src/utils/path.utils.ts",
+    "src/api/methods.ts",
+    "src/api/clients/core/methods.ts",
+    "src/api/clients/core/payload.ts",
+    "src/styles/theme.ts",
+    "src/utils/test-utils.tsx",
+    "src/constants/test.ts",
+    "src/i18n/index.ts",
+    "src/hooks/index.ts"
+  ],
+  "ignoreDependencies": [
+    "stylis",
+    "auto-changelog",
+    "@vitest/coverage-v8",
+    "@storybook/blocks",
+    "@storybook/testing-library",
+    "qs",
+    "@types/qs",
+    "@testing-library/user-event"
+  ],
+  "project": ["src/**/*.ts", "src/**/*.tsx"]
+}

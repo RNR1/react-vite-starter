@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 type ReturnType<T> = [T, React.Dispatch<React.SetStateAction<T>>];
 
@@ -15,8 +15,9 @@ const useLocalStorage = <T>(key: string, initialValue: T): ReturnType<T> => {
     try {
       // Get from local storage by key
       const item = window.localStorage.getItem(key);
+      if (!item) return initialValue;
       // Parse stored json or if none return initialValue
-      return item ? JSON.parse(item) : initialValue;
+      return JSON.parse(item) as T;
     } catch (error) {
       // If error also return initialValue
       return initialValue;

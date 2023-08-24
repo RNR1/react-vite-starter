@@ -9,7 +9,7 @@ import theme from 'styles/theme';
  * This component will provide global styles and styling theme
  * to any wrapped children
  */
-const StylesProvider = ({ children }: React.PropsWithChildren<{}>) => (
+const StylesProvider = ({ children }: React.PropsWithChildren) => (
   <ThemeProvider theme={theme}>
     <GlobalStyle />
     {children}

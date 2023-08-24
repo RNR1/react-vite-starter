@@ -11,7 +11,7 @@ globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 // Mock window in cases it's not available
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: vi.fn().mockImplementation((query) => ({
+  value: vi.fn().mockImplementation((query: unknown) => ({
     matches: false,
     media: query,
     onchange: null,
@@ -27,7 +27,7 @@ Object.defineProperty(window, 'matchMedia', {
 // Suppress ReactDOM 18 console errors
 const originalError = console.error;
 beforeAll(() => {
-  console.error = (...args) => {
+  console.error = (...args: string[]) => {
     if (
       /Warning: ReactDOM.render is no longer supported in React 18./.test(
         args[0],

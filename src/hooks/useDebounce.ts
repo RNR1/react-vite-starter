@@ -7,7 +7,7 @@ import * as React from 'react';
  * @param delay - number
  * @returns T
  */
-const useDebounce = <T>(value: T, delay: number = 300): T => {
+const useDebounce = <T>(value: T, delay = 300): T => {
   const [debouncedValue, setDebouncedValue] = React.useState(value);
 
   React.useEffect(() => {
