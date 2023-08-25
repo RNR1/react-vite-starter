@@ -75,7 +75,7 @@
     "husky": "8.0.3",
     "jsdom": "22.1.0",
     "knip": "2.19.11",
-    "lint-staged": "13.2.3",
+    "lint-staged": "14.0.1",
     "prettier": "3.0.2",
     "release-it": "16.1.5",
     "storybook": "7.3.2",
