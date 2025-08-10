@@ -80,8 +80,8 @@ devDependencies:
     specifier: 7.3.2
     version: 7.3.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)(vite@4.4.9)
   '@storybook/testing-library':
-    specifier: 0.2.0
-    version: 0.2.0
+    specifier: 0.2.2
+    version: 0.2.2
   '@svgr/cli':
     specifier: 8.1.0
     version: 8.1.0
@@ -4233,8 +4233,9 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/testing-library@0.2.0:
-    resolution: {integrity: sha512-Ff6jNnrsosmDshgCf0Eb5Cz7IA34p/1Ps5N3Kp3598kfXpBSccSkQQvVFUXC3kIHw/isIXWPqntZuKqnWUz7Gw==}
+  /@storybook/testing-library@0.2.2:
+    resolution: {integrity: sha512-L8sXFJUHmrlyU2BsWWZGuAjv39Jl1uAqUHdxmN42JY15M4+XCMjGlArdCCjDe1wpTSW6USYISA9axjZojgtvnw==}
+    deprecated: In Storybook 8, this package functionality has been integrated to a new package called @storybook/test, which uses Vitest APIs for an improved experience. When upgrading to Storybook 8 with 'npx storybook@latest upgrade', you will get prompted and will get an automigration for the new package. Please migrate when you can.
     dependencies:
       '@testing-library/dom': 9.3.1
       '@testing-library/user-event': 14.4.3(@testing-library/dom@9.3.1)
