@@ -38,8 +38,8 @@
     "stylis": "4.3.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.7.1",
-    "@commitlint/config-angular": "17.7.0",
+    "@commitlint/cli": "17.8.1",
+    "@commitlint/config-angular": "17.8.1",
     "@release-it/conventional-changelog": "7.0.0",
     "@storybook/addon-essentials": "7.3.2",
     "@storybook/addon-interactions": "7.3.2",
