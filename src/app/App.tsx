@@ -1,11 +1,11 @@
-import { Helmet } from 'react-helmet-async';
+import DocumentTitle from 'components/DocumentTitle/DocumentTitle';
 import Routes from 'routes';
 import 'i18n';
 import Providers from 'app/Providers';
 
 const App = () => (
   <Providers withReactQueryDevTools>
-    <Helmet defaultTitle="Vite Starter" titleTemplate="Vite Starter • %s" />
+    <DocumentTitle title="Vite Starter" />
     <Routes />
   </Providers>
 );

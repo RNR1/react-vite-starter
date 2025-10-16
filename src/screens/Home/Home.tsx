@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { format } from 'date-fns/format';
@@ -6,6 +5,7 @@ import Button from 'components/Button';
 import StyledLogo from 'components/Logo';
 import Link from 'components/Link';
 import { useCounter } from 'hooks';
+import DocumentTitle from 'components/DocumentTitle/DocumentTitle';
 
 const Home = () => {
   const { t } = useTranslation('home');
@@ -15,6 +15,7 @@ const Home = () => {
 
   return (
     <>
+      <DocumentTitle title="Home" />
       <Header>
         <StyledLogo />
         <p>{t('home.hello-vite', { user: 'User' })}</p>

@@ -1,9 +1,12 @@
-import * as React from 'react';
+import DocumentTitle from 'components/DocumentTitle/DocumentTitle';
 
 const Login = () => (
-  <section>
-    <h1>Login</h1>
-  </section>
+  <>
+    <DocumentTitle title="Login" />
+    <section>
+      <h1>Login</h1>
+    </section>
+  </>
 );
 
 export default Login;
