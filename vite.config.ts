@@ -11,8 +11,14 @@ import Unfonts from 'unplugin-fonts/vite';
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
-    eslintPlugin({ failOnError: true }),
-    react(),
+    eslintPlugin({
+      failOnError: true,
+    }),
+    react({
+      babel: {
+        plugins: ['babel-plugin-react-compiler'],
+      },
+    }),
     svgrPlugin({ svgrOptions: { configFile: '.svgrrc.json' } }),
     Unfonts({ google: { families: ['Roboto'] } }),
   ],
