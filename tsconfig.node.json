@@ -3,7 +3,7 @@
     "composite": true,
     "module": "esnext",
     "strictNullChecks": true,
-    "moduleResolution": "node"
+    "moduleResolution": "bundler"
   },
   "include": ["vite.config.ts"]
 }
