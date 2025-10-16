@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import CounterSelector from 'store/selectors/counter.selectors';
 import * as Action from 'store/reducers/counter.reducer';
@@ -17,13 +16,13 @@ const useCounter = (): UseCounterReturn => {
   const dispatch = useAppDispatch();
   const count = useAppSelector(CounterSelector.count);
 
-  const increment: VoidFunction = React.useCallback(() => {
+  const increment: VoidFunction = () => {
     dispatch(Action.increment());
-  }, [dispatch]);
+  };
 
-  const decrement: VoidFunction = React.useCallback(() => {
+  const decrement: VoidFunction = () => {
     dispatch(Action.decrement());
-  }, [dispatch]);
+  };
 
   return { count, increment, decrement };
 };

@@ -1,4 +1,4 @@
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import Button from 'components/Button';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

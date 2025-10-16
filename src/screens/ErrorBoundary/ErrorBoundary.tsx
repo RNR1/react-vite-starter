@@ -20,7 +20,7 @@ const ErrorBoundary = () => {
 
   if (import.meta.env.DEV) console.error({ error });
 
-  const errorMessage = (status: number) => {
+  const errorMessage = (status: StatusCode) => {
     switch (status) {
       case StatusCode.NOT_FOUND:
         return {

@@ -18,9 +18,9 @@ const useDebounce = <T>(value: T, delay = 300): T => {
     return () => {
       clearTimeout(handler);
     };
-  }, [delay, value]);
+  });
 
-  return React.useMemo(() => debouncedValue, [debouncedValue]);
+  return debouncedValue;
 };
 
 export default useDebounce;

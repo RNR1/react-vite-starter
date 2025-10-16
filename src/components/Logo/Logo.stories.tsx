@@ -1,4 +1,4 @@
-import { StoryObj, Meta } from '@storybook/react';
+import { StoryObj, Meta } from '@storybook/react-vite';
 import Logo from 'components/Logo';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

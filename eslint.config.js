@@ -15,7 +15,7 @@ export default [
   // TypeScript files
   {
     files: ['**/*.{ts,tsx}'],
-    ignores: ['vite.config.ts'],
+    ignores: ['vite.config.ts', '.storybook/**/*'],
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
@@ -135,6 +135,31 @@ export default [
     rules: {
       '@typescript-eslint/consistent-type-definitions': 'off',
       '@typescript-eslint/no-empty-interface': 'off',
+    },
+  },
+
+  // Storybook files (no TypeScript project)
+  {
+    files: ['.storybook/**/*.{ts,tsx}'],
+    languageOptions: {
+      parser: typescriptParser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion: 12,
+        sourceType: 'module',
+        // No project setting for storybook files
+      },
+      globals: {
+        ...globals.node,
+      },
+    },
+    plugins: {
+      '@typescript-eslint': typescriptEslint,
+    },
+    rules: {
+      ...typescriptEslint.configs.recommended.rules,
     },
   },
 

@@ -18,7 +18,7 @@ const useLocalStorage = <T>(key: string, initialValue: T): ReturnType<T> => {
       if (!item) return initialValue;
       // Parse stored json or if none return initialValue
       return JSON.parse(item) as T;
-    } catch (error) {
+    } catch (_error) {
       // If error also return initialValue
       return initialValue;
     }
@@ -35,7 +35,7 @@ const useLocalStorage = <T>(key: string, initialValue: T): ReturnType<T> => {
       if (typeof window !== 'undefined') {
         window.localStorage.setItem(key, JSON.stringify(valueToStore));
       }
-    } catch (error) {
+    } catch (_error) {
       // no-op
     }
   };

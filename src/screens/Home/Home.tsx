@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import format from 'date-fns/format';
+import { format } from 'date-fns/format';
 import Button from 'components/Button';
 import StyledLogo from 'components/Logo';
 import Link from 'components/Link';
@@ -38,7 +38,7 @@ const Home = () => {
         </Button>
       </section>
       <p className="recommended-links">
-        <Link href="https://reactjs.org">{t('home.learn-react')}</Link>
+        <Link href="https://react.dev">{t('home.learn-react')}</Link>
         {' | '}
         <Link href="https://vitejs.dev/guide/features.html">
           {t('home.vite-docs')}

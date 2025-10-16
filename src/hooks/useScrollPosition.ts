@@ -11,10 +11,10 @@ const useScrollPosition = (initialValue = 0) => {
   const [scrollPosition, setScrollPosition] =
     React.useState<number>(initialValue);
 
-  const handleScroll = React.useCallback(() => {
+  const handleScroll = () => {
     const currentPosition = window?.pageYOffset ?? initialValue;
     setScrollPosition(currentPosition);
-  }, [initialValue]);
+  };
 
   React.useLayoutEffect(() => {
     if (typeof window !== 'undefined')
@@ -24,7 +24,7 @@ const useScrollPosition = (initialValue = 0) => {
       if (typeof window !== 'undefined')
         window.removeEventListener('scroll', handleScroll);
     };
-  }, [handleScroll]);
+  });
 
   return scrollPosition;
 };

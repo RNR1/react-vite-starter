@@ -25,7 +25,7 @@ const useOnClickOutside = <T extends HTMLElement>(
       if (typeof document !== 'undefined')
         document.removeEventListener(event, listener);
     };
-  }, [ref, handler, event]);
+  });
 
   return [ref];
 };

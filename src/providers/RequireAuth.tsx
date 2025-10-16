@@ -1,4 +1,4 @@
-import hoursToMilliseconds from 'date-fns/hoursToMilliseconds';
+import { hoursToMilliseconds } from 'date-fns/hoursToMilliseconds';
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Navigate, useLocation } from 'react-router-dom';
