@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { Main } from 'screens/Layout';
-import { Link, useRouteError } from 'react-router-dom';
+import { Link, useRouteError } from 'react-router';
 import Path, { AppPath } from 'routes/paths';
 import { absolutePath, join } from 'utils/path.utils';
 import { StatusCode } from 'api/types';

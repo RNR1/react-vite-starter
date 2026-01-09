@@ -5,7 +5,7 @@ import {
   RouteObject,
   RouterProvider,
   Outlet,
-} from 'react-router-dom';
+} from 'react-router';
 import Screen, { Layout, ErrorElement } from 'screens';
 import Path, { AppPath, AuthPath } from 'routes/paths';
 import { join } from 'utils/path.utils';

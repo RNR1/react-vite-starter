@@ -1,7 +1,7 @@
 import { hoursToMilliseconds } from 'date-fns/hoursToMilliseconds';
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router';
 import { AuthAPI } from 'api/clients/core/methods';
 import Path, { AuthPath } from 'routes/paths';
 import { absolutePath, join } from 'utils/path.utils';
